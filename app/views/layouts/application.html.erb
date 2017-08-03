@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dev</title>
+    <%= csrf_meta_tags %>
+    <!-- All css include -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- All java script include -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<!-- Header inlclude -->  
+     <% flash.each do |key, value| %>
+      <span class="flash_notification" data-type="<%=set_flash_key(key)%>" data-msg="<%=value%>"></span>
+    <% end %>  
+  	<%= render partial: "layouts/partials/header"%>
+    <%= yield %>
+  </body>
+</html>
